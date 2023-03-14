@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <body>
+
+    <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_Black.png" width="200" height="60" >
+    
+    </body> 
+  
+<head>
+<style>
+  p {text-align: center;}
+  h2{text-align: center;}
+ form{text-align: center;}
+img {
+   text-align: center;
+
+}
+</style>
+</head>
+
+</html>
+<h2 style="font-family: Arial, Helvetica, sans-serif; color:black">Search Music Here</h2>
+
+<p style="font-family:Arial, Helvetica, sans-serif; color: black">Search using my Spotify App to find the artist</p>
+
+<form>
+  <div class="form-group">
+    <input
+      class="w3-input"
+      type="text"
+      [(ngModel)]="searchStr"
+      placeholder="Search Artist"
+      [ngModelOptions]="{ standalone: true }"
+    />
+  </div>
+  <button
+    class="btn btn-outline-dark"
+    type="submit"
+    (click)="searchSong()"
+    name="submit"
+    value="submit"
+  >
+    Submit
+  </button>
+</form>
+<ng-container *ngIf="listOfMusic !== null">
+  <div *ngFor="let artist of listOfMusic">
+    <p class="name">Profile of {{ artist.name }}</p>
+    <p>Genres: {{ artist.genres }}</p>
+    <p>Followers: {{ artist.followers.total }}</p>
+    <p><img src="{{ artist.images[2].url }}"></p>
+  </div>
+</ng-container>
+
